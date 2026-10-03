@@ -1,0 +1,1031 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, "Segoe UI", sans-serif;
+    color: #604451;
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   BACKGROUND
+================================ */
+
+.page-one {
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            #ffffff 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            #f6cfdd 0,
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            #fff8f7,
+            #f6e0e7
+        );
+}
+
+.page-two {
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            #ffffff 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 10% 85%,
+            #efd0dc 0,
+            transparent 30%
+        ),
+        linear-gradient(
+            145deg,
+            #fff8f6,
+            #f1dce3
+        );
+}
+
+
+/* ================================
+   CONTAINER
+================================ */
+
+.first-screen,
+.music-screen {
+
+    width: min(900px, 100%);
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding:
+        55px 20px 35px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ================================
+   TEXT
+================================ */
+
+.small-title {
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #b36e88;
+
+    font-weight: 700;
+}
+
+h1 {
+
+    margin-top: 18px;
+
+    font-family: Georgia, serif;
+
+    color: #713f55;
+
+    font-size:
+        clamp(31px, 7vw, 48px);
+
+    line-height: 1.25;
+}
+
+.subtitle {
+
+    margin:
+        12px auto 0;
+
+    max-width: 520px;
+
+    color: #987582;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ================================
+   HATI TERBANG
+================================ */
+
+.floating-hearts,
+.music-particles {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+.floating-hearts span,
+.music-particles span {
+
+    position: absolute;
+
+    bottom: -50px;
+
+    color: #c9799680;
+
+    font-size: 25px;
+
+    animation:
+        floatUp 10s linear infinite;
+}
+
+.floating-hearts span:nth-child(1),
+.music-particles span:nth-child(1) {
+    left: 12%;
+}
+
+.floating-hearts span:nth-child(2),
+.music-particles span:nth-child(2) {
+    left: 35%;
+    animation-delay: 3s;
+}
+
+.floating-hearts span:nth-child(3),
+.music-particles span:nth-child(3) {
+    left: 65%;
+    animation-delay: 6s;
+}
+
+.floating-hearts span:nth-child(4),
+.music-particles span:nth-child(4) {
+    left: 85%;
+    animation-delay: 1s;
+}
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(35deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* ================================
+   HALAMAN 1
+   DUDU NGUMPET
+================================ */
+
+.hide-area {
+
+    position: relative;
+
+    width: 310px;
+
+    height: 270px;
+
+    margin:
+        35px auto 0;
+}
+
+.dudu-hidden {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 5px;
+
+    width: 180px;
+
+    height: 180px;
+
+    transform:
+        translate(-50%, 120px);
+
+    opacity: 0;
+
+    transition:
+        .8s ease;
+}
+
+.dudu-hidden img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.dudu-hidden.show {
+
+    transform:
+        translate(-50%, 0);
+
+    opacity: 1;
+}
+
+
+/* TOMBOL BUKA */
+
+.peek-button {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 10px;
+
+    transform:
+        translateX(-50%);
+
+    width: 100px;
+
+    height: 100px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #d17a98;
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 30px
+        #9b4f6c30;
+
+    transition: .3s;
+}
+
+.peek-button:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.06);
+}
+
+.peek-button span {
+
+    display: block;
+
+    font-size: 35px;
+}
+
+.peek-button small {
+
+    font-size: 10px;
+}
+
+.peek-button.hide {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateX(-50%)
+        scale(.5);
+}
+
+
+/* ================================
+   DUDU + SURAT
+================================ */
+
+.letter-scene {
+
+    max-width: 700px;
+
+    margin:
+        -5px auto 0;
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
+    pointer-events: none;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: .8s ease;
+}
+
+.letter-scene.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+
+    max-height: 800px;
+}
+
+.dudu-letter {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.dudu-letter > img {
+
+    width: 190px;
+
+    height: 190px;
+
+    animation:
+        duduFloat
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes duduFloat {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+
+/* SURAT */
+
+.letter {
+
+    width:
+        min(390px, 90vw);
+
+    min-height: 220px;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    background: #fffdf8;
+
+    border:
+        1px solid #ead2da;
+
+    box-shadow:
+        0 15px 35px
+        #87526918;
+
+    text-align: left;
+}
+
+.letter-heart {
+
+    text-align: center;
+
+    color: #c86f8d;
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+.typed-text {
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    color: #714858;
+}
+
+.typed-text::after {
+
+    content: "|";
+
+    animation:
+        blink .7s infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* NEXT */
+
+.next-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding:
+        13px 24px;
+
+    border-radius: 50px;
+
+    background: #c87593;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 8px 20px
+        #b45e7d30;
+
+    transition: .25s;
+}
+
+.next-button:hover {
+
+    transform:
+        translateY(-3px);
+}
+
+
+/* ================================
+   HALAMAN 2
+   RADIO
+================================ */
+
+.music-stage {
+
+    width:
+        min(700px, 100%);
+
+    min-height: 390px;
+
+    margin:
+        35px auto 0;
+
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+}
+
+
+/* DUDU */
+
+.dudu-radio {
+
+    width: 210px;
+
+    height: 210px;
+
+    position: absolute;
+
+    left: 3%;
+
+    bottom: 35px;
+
+    z-index: 2;
+
+    animation:
+        duduFloat
+        2.5s
+        infinite
+        ease-in-out;
+}
+
+.dudu-radio img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* RADIO */
+
+.radio {
+
+    width: 350px;
+
+    height: 270px;
+
+    padding: 18px;
+
+    border-radius: 22px;
+
+    background: #d38ba4;
+
+    border:
+        5px solid #b96c87;
+
+    box-shadow:
+        0 18px 35px
+        #75465a2b;
+
+    position: relative;
+}
+
+.radio-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+.radio-screen {
+
+    width: 210px;
+
+    height: 45px;
+
+    margin: 15px auto;
+
+    border-radius: 7px;
+
+    background: #624e57;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #f8e5a5;
+
+    font-family: monospace;
+
+    font-size: 12px;
+}
+
+
+/* SPEAKER */
+
+.radio-speaker {
+
+    width: 210px;
+
+    height: 100px;
+
+    margin: auto;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #704b59;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 8px;
+}
+
+.radio-speaker i {
+
+    width: 7px;
+
+    height: 7px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background: #dca4b8;
+}
+
+.radio-buttons {
+
+    margin-top: 12px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    color: white;
+
+    font-size: 12px;
+}
+
+.radio-slot {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 13px;
+
+    transform:
+        translateX(-50%);
+
+    width: 190px;
+
+    height: 7px;
+
+    border-radius: 10px;
+
+    background: #754858;
+}
+
+
+/* ================================
+   KASET
+================================ */
+
+.cassette {
+
+    position: absolute;
+
+    right: 2%;
+
+    bottom: 28px;
+
+    z-index: 4;
+
+    width: 145px;
+
+    height: 92px;
+
+    border:
+        5px solid #8c536b;
+
+    border-radius: 10px;
+
+    background: #e6a9bb;
+
+    cursor: pointer;
+
+    transform:
+        rotate(7deg);
+
+    box-shadow:
+        0 10px 20px
+        #75465a25;
+
+    transition:
+        .9s ease;
+}
+
+.cassette:hover {
+
+    transform:
+        rotate(3deg)
+        scale(1.05);
+}
+
+
+/* KASET MASUK RADIO */
+
+.cassette.inserted {
+
+    right: 50%;
+
+    bottom: 210px;
+
+    transform:
+        translateX(50%)
+        scale(.25);
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.cassette-label {
+
+    position: absolute;
+
+    left: 25px;
+
+    top: 15px;
+
+    width: 85px;
+
+    height: 38px;
+
+    background: #fff4f0;
+
+    border-radius: 4px;
+
+    color: #9d5d76;
+
+    font-size: 9px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.cassette-label span {
+
+    font-size: 16px;
+}
+
+.reel {
+
+    position: absolute;
+
+    bottom: 10px;
+
+    width: 23px;
+
+    height: 23px;
+
+    border-radius: 50%;
+
+    background: #805064;
+
+    border:
+        5px dotted #eab7c7;
+}
+
+.reel-left {
+    left: 16px;
+}
+
+.reel-right {
+    right: 16px;
+}
+
+.cassette-tape {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 19px;
+
+    width: 45px;
+
+    height: 8px;
+
+    transform:
+        translateX(-50%);
+
+    background: #8c536b;
+
+    border-radius: 5px;
+}
+
+
+/* ================================
+   SETELAH AUDIO
+================================ */
+
+.click-hint {
+
+    margin-top: 15px;
+
+    color: #966d7d;
+
+    font-size: 13px;
+}
+
+.after-audio {
+
+    width:
+        min(650px, 100%);
+
+    margin:
+        35px auto 0;
+
+    padding:
+        30px 25px;
+
+    border:
+        1px solid #e7c8d3;
+
+    border-radius: 22px;
+
+    background:
+        #ffffffd9;
+
+    box-shadow:
+        0 15px 35px
+        #75465a12;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    pointer-events: none;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: .8s ease;
+}
+
+.after-audio.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+
+    max-height: 700px;
+}
+
+.soft-heart {
+
+    color: #c87593;
+
+    font-size: 35px;
+}
+
+.after-audio h2 {
+
+    margin-top: 8px;
+
+    font-family: Georgia, serif;
+
+    color: #75465a;
+
+    font-size: 28px;
+}
+
+.after-audio p {
+
+    margin-top: 15px;
+
+    color: #765765;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* WHATSAPP */
+
+.wa-button {
+
+    display: inline-block;
+
+    margin-top: 23px;
+
+    padding:
+        14px 25px;
+
+    border-radius: 50px;
+
+    background: #c87593;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.wa-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #b66583;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .first-screen,
+    .music-screen {
+
+        padding:
+            40px 15px 30px;
+    }
+
+    .dudu-letter {
+
+        flex-direction: column;
+    }
+
+    .dudu-letter > img {
+
+        width: 145px;
+
+        height: 145px;
+    }
+
+    .letter {
+
+        min-height: 210px;
+    }
+
+    .typed-text {
+
+        font-size: 16px;
+    }
+
+    .music-stage {
+
+        min-height: 480px;
+    }
+
+    .radio {
+
+        width: 300px;
+
+        height: 250px;
+    }
+
+    .dudu-radio {
+
+        width: 150px;
+
+        height: 150px;
+
+        left: 0;
+
+        bottom: 30px;
+    }
+
+    .cassette {
+
+        right: 0;
+
+        bottom: 25px;
+
+        width: 125px;
+    }
+}
